@@ -1,3 +1,53 @@
+/* 
+
+Pale Pink: #F9D1D1
+Lavender: #E1C6E8
+Mellow Yellow: #F6E6A0
+Mint Green: #A3E4D7
+Soft Peach: #F1C6B1
+
+///////////////////////
+
+Powder Blue: #B2D9E3
+Blush Pink: #F7C6C7
+Pastel Mint: #A8E2D7
+Creamy White: #F4F2F0
+Light Lavender: #D9B0D0
+
+///////////////////////
+
+Pale Peach: #F9C8A6
+Pastel Lavender: #D4A8D3
+Light Lemon: #F2E394
+Pale Sky Blue: #A9D7F1
+Soft Lilac: #D6AEDD
+
+///////////////////////
+
+Muted Mint: #B2D6A8
+Baby Pink: #F1B6C1
+Sky Blue: #A4C8E0
+Soft Coral: #F2A8A1
+Warm Beige: #F1D9C6
+
+///////////////////////
+
+Lemon Chiffon: #FFF5A3
+Lavender Mist: #D2A7D7
+Soft Peachy Pink: #F2C1C0
+Light Sage: #D0E1C0
+Cotton White: #F8F8F4
+
+///////////////////////
+
+Pale Pink Peach: #F8D1D1
+Sky Blue: #A8CBE8
+Minty Green: #B8D9C6
+Soft Yellow: #F9E0B4
+Lilac Mist: #D1C5F0
+
+*/
+
 *,
 *::after,
 *::before {
@@ -24,4 +74,63 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+.wrapper {
+  /* border: 1px solid black; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+.card {
+  border: 1px solid black;
+  width: 40%;
+  height: 60%;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url("./imgs/flower-pattern.png");
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center center;
+  position: absolute;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(240, 128, 128, 0.4);
+}
+
+.btn {
+  font-size: 2.4rem;
+  padding: 1rem 3rem;
+  background-color: lightblue;
+  /* border: none; */
+  border-radius: 10px;
+  cursor: pointer;
+
+  box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.8);
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
+}
+
+.btn:active {
+  transform: translateY(5px);
+  box-shadow: 5px 5px 10px rgb(0, 0, 0, 1);
 }
