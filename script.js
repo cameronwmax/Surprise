@@ -27,24 +27,16 @@ function moveCat(cat, curX, curY, type) {
 
   if (moveDir < 0.25) {
     newX = Math.max(curX - moveDist, 0);
-    cat.style.animation = `${type}-cat-left-frames 0.5s steps(3) infinite`;
-    cat.classList.add(`${type}-cat-shadow-horizontal`);
-    cat.classList.remove(`${type}-cat-shadow-vertical`);
+    handleCatStylesX(cat, type, "left");
   } else if (moveDir < 0.5) {
     newX = Math.min(curX + moveDist, rightEdge);
-    cat.style.animation = `${type}-cat-right-frames 0.5s steps(3) infinite`;
-    cat.classList.add(`${type}-cat-shadow-horizontal`);
-    cat.classList.remove(`${type}-cat-shadow-vertical`);
+    handleCatStylesX(cat, type, "right");
   } else if (moveDir < 0.75) {
     newY = Math.min(newY + moveDist, topEdge);
-    cat.style.animation = `${type}-cat-up-frames 0.5s steps(3) infinite`;
-    cat.classList.add(`${type}-cat-shadow-vertical`);
-    cat.classList.remove(`${type}-cat-shadow-horizontal`);
+    handleCatStylesY(cat, type, "up");
   } else if (moveDir < 0.99) {
     newY = Math.max(curY - moveDist, bottomEdge);
-    cat.style.animation = `${type}-cat-down-frames 0.5s steps(3) infinite`;
-    cat.classList.add(`${type}-cat-shadow-vertical`);
-    cat.classList.remove(`${type}-cat-shadow-horizontal`);
+    handleCatStylesY(cat, type, "down");
   }
 
   cat.style.transition = "left 2s linear, bottom 2s linear";
@@ -69,6 +61,18 @@ function moveCat(cat, curX, curY, type) {
 
     setTimeout(() => moveCat(cat, curX, curY, type), Math.random() * 3000 + 1000);
   }, 2000);
+}
+
+function handleCatStylesX(cat, type, direction) {
+  cat.style.animation = `${type}-cat-${direction}-frames 0.5s steps(3) infinite`;
+  cat.classList.add(`${type}-cat-shadow-horizontal`);
+  cat.classList.remove(`${type}-cat-shadow-vertical`);
+}
+
+function handleCatStylesY(cat, type, direction) {
+  cat.style.animation = `${type}-cat-${direction}-frames 0.5s steps(3) infinite`;
+  cat.classList.add(`${type}-cat-shadow-vertical`);
+  cat.classList.remove(`${type}-cat-shadow-horizontal`);
 }
 
 setTimeout(() => moveCat(whiteCat, whiteCatX, whiteCatY, "white"), Math.random() * 3000 + 1000);
