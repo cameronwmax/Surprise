@@ -1,6 +1,8 @@
 const whiteCat = document.querySelector(".white-cat");
 const blackCat = document.querySelector(".black-cat");
 const container = document.querySelector(".card");
+const flowers = document.querySelector(".flowers");
+const btn = document.querySelector(".btn");
 
 const leftEdge = 0;
 const rightEdge = container.offsetWidth - 33;
@@ -82,11 +84,7 @@ function handleCatStyleStand(cat, type, direction) {
 setTimeout(() => moveCat(whiteCat, whiteCatX, whiteCatY, "white"), Math.random() * 3000 + 1000);
 setTimeout(() => moveCat(blackCat, blackCatX, blackCatY, "black"), Math.random() * 3000 + 1000);
 
-const btn = document.querySelector(".btn");
-
 btn.addEventListener("click", () => {
-  console.log("test");
-  const flowers = document.querySelector(".flowers");
   flowers.classList.remove("hide");
   flowers.classList.add("show");
   btn.classList.add("hide-btn");

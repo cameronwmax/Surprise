@@ -1,34 +1,3 @@
-/* 
-
-
-
-Baby Blue: #A7C7E7
-Black: #4F4F4F 
-White: #FFFFFF
-Red: #F4A7A7 
-
-Baby Blue: #5EC3F2
-Black: #000000
-White: #FFFFFF
-Red: #FF3333
-
-Baby Blue: #7DB9E8
-Black: #2A2A2A
-White: #F1F1F1
-Red: #D26D6D
-
-Baby Blue: #A3C9D7
-Black: #333333
-White: #FAF9F9
-Red: #8C3B3B
-
-Baby Blue: #B0D9F3
-Black: #4F4F4F
-White: #FFFFFF
-Red: #F1A7A7
-
-*/
-
 :root {
   --color-blue: #89cff0;
   --color-black: #000000;
@@ -88,8 +57,6 @@ img {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: var(--color-red);
-  background-color: rgb(244, 167, 167, 0.7);
   background-color: rgba(255, 51, 51, 0.6);
 }
 
