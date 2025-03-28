@@ -129,7 +129,7 @@ img {
   width: 33px;
   height: 33px;
 
-  background-image: url("./imgs/cat-frames/cat-right-1.png");
+  background-image: url("./imgs/cat-frames/cat-up-1.png");
   background-repeat: no-repeat;
   z-index: 100;
 
@@ -143,11 +143,36 @@ img {
   height: 10px;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
-  bottom: 0px;
-  left: 55%;
+  bottom: 5px;
+  left: 20px;
   transform: translateX(-50%);
   z-index: 99;
   filter: blur(3px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.animal::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  bottom: 5px;
+  right: 0;
+  transform: translateX(-50%);
+  z-index: 99;
+  filter: blur(3px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.shadow-slide::after {
+  opacity: 1;
+}
+
+.shadow-vertical::before {
+  opacity: 1;
 }
 
 @keyframes walk-right-frames {
