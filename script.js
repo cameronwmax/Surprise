@@ -13,15 +13,14 @@ let curY = bottomEdge;
 function moveCat() {
   let moveDist = Math.floor(Math.random() * 150 + 50);
   let moveDir = Math.random();
-  moveDir = 0.2;
+  // moveDir = 0.2;
 
-  console.log(rightEdge);
   if (curX === leftEdge) moveDir = 0.49;
   if (curX === rightEdge) moveDir = 0.24;
+  console.log(curX === leftEdge);
 
   let newX = curX;
   let newY = curY;
-  console.log(curX + moveDist);
 
   if (moveDir < 0.25) {
     newX = Math.max(curX - moveDist, 0);
@@ -33,5 +32,19 @@ function moveCat() {
 
   cat.style.transition = "left 2s linear";
   cat.style.left = newX + "px";
+
+  curX = newX;
+
+  setTimeout(() => {
+    cat.style.animation = "none";
+
+    if (moveDir < 0.25) {
+      cat.style.backgroundImage = "url('./imgs/cat-frames/cat-left-2.png')";
+    } else if (moveDir < 0.5) {
+      cat.style.backgroundImage = "url('./imgs/cat-frames/cat-right-2.png')";
+    }
+
+    setTimeout(moveCat, Math.random() * 3000 + 1000);
+  }, 2000);
 }
 moveCat();
