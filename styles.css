@@ -29,8 +29,15 @@ Red: #F1A7A7
 
 */
 
+:root {
+  --color-blue: #a7c7e7;
+  --color-black: #4f4f4f;
+  --color-white: #fff;
+  --color-red: #f4a7a7;
+}
+
 body {
-  background-color: black;
+  background-color: var(--color-blue);
 }
 
 *,
@@ -71,7 +78,7 @@ img {
 }
 
 .card {
-  border: 1px solid black;
+  border: 5px solid var(--color-black);
   width: 40%;
   height: 60%;
   border-radius: 10px;
@@ -80,12 +87,12 @@ img {
   align-items: center;
   justify-content: center;
 
-  /* background-image: url("./imgs/flower-pattern.png");
+  background-image: url("./imgs/flower-pattern.png");
   background-size: contain;
   background-repeat: repeat;
-  background-position: center center; */
+  background-position: center center;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .card::before {
@@ -95,17 +102,17 @@ img {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(240, 128, 128, 0.4);
+  background-color: var(--color-red);
+  background-color: rgb(244, 167, 167, 0.7);
 }
 
 .btn {
   font-size: 2.4rem;
   padding: 1rem 3rem;
-  background-color: lightblue;
-  /* border: none; */
+  background-color: var(--color-blue);
+  border: 1px solid var(--color-black);
   border-radius: 10px;
   cursor: pointer;
-
   box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.8);
   transition: all 0.3s;
   z-index: 999;
@@ -121,75 +128,31 @@ img {
   box-shadow: 5px 5px 10px rgb(0, 0, 0, 1);
 }
 
-.white-cat {
+.white-cat,
+.black-cat {
   position: absolute;
-  bottom: 100px;
-  left: 40px;
   width: 33px;
   height: 33px;
-
-  background-image: url("./imgs/cat-frames/white-cat-sleeping.png");
-  background-repeat: no-repeat;
   z-index: 100;
-
+  background-repeat: no-repeat;
   transition: all 10s;
 }
 
-.white-cat::after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
-  bottom: 5px;
-  left: 20px;
-  transform: translateX(-50%);
-  z-index: 99;
-  filter: blur(3px);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-.white-cat::before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 20px;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
-  bottom: 5px;
-  right: 0;
-  transform: translateX(-50%);
-  z-index: 99;
-  filter: blur(3px);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.white-cat-shadow-horizontal::after {
-  opacity: 1;
-}
-
-.white-cat-shadow-vertical::before {
-  opacity: 1;
+.white-cat {
+  bottom: 100px;
+  left: 40px;
+  background-image: url("./imgs/cat-frames/white-cat-sleeping.png");
+  background-repeat: no-repeat;
 }
 
 .black-cat {
-  position: absolute;
-  bottom: calc(100% - 100px);
   bottom: 90px;
-  left: calc(100% - 33px);
   left: 20px;
-  width: 33px;
-  height: 33px;
-
   background-image: url("./imgs/cat-frames/black-cat-sleeping.png");
   background-repeat: no-repeat;
-  z-index: 100;
-
-  transition: all 10s;
 }
 
+.white-cat::after,
 .black-cat::after {
   content: "";
   position: absolute;
@@ -205,6 +168,8 @@ img {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
+
+.white-cat::before,
 .black-cat::before {
   content: "";
   position: absolute;
@@ -221,10 +186,9 @@ img {
   transition: opacity 0.2s ease;
 }
 
-.black-cat-shadow-horizontal::after {
-  opacity: 1;
-}
-
+.white-cat-shadow-horizontal::after,
+.white-cat-shadow-vertical::before,
+.black-cat-shadow-horizontal::after,
 .black-cat-shadow-vertical::before {
   opacity: 1;
 }
