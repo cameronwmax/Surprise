@@ -22,6 +22,35 @@ let mouseX = 0,
 let cursorX = 0,
   cursorY = 0;
 
+const images = [
+  "./imgs/cat-frames/black-cat-up-1.png",
+  "./imgs/cat-frames/black-cat-up-2.png",
+  "./imgs/cat-frames/black-cat-up-3.png",
+  "./imgs/cat-frames/black-cat-down-1.png",
+  "./imgs/cat-frames/black-cat-down-2.png",
+  "./imgs/cat-frames/black-cat-down-3.png",
+  "./imgs/cat-frames/black-cat-left-1.png",
+  "./imgs/cat-frames/black-cat-left-2.png",
+  "./imgs/cat-frames/black-cat-left-3.png",
+  "./imgs/cat-frames/black-cat-right-1.png",
+  "./imgs/cat-frames/black-cat-right-2.png",
+  "./imgs/cat-frames/black-cat-right-3.png",
+  "./imgs/cat-frames/white-cat-up-1.png",
+  "./imgs/cat-frames/white-cat-up-2.png",
+  "./imgs/cat-frames/white-cat-up-3.png",
+  "./imgs/cat-frames/white-cat-down-1.png",
+  "./imgs/cat-frames/white-cat-down-2.png",
+  "./imgs/cat-frames/white-cat-down-3.png",
+  "./imgs/cat-frames/white-cat-left-1.png",
+  "./imgs/cat-frames/white-cat-left-2.png",
+  "./imgs/cat-frames/white-cat-left-3.png",
+  "./imgs/cat-frames/white-cat-right-1.png",
+  "./imgs/cat-frames/white-cat-right-2.png",
+  "./imgs/cat-frames/white-cat-right-3.png",
+  "./imgs/flower-1.jpg",
+  "./imgs/flower-pattern.png",
+];
+
 document.addEventListener("mousemove", (e) => {
   mouseX = e.pageX;
   mouseY = e.pageY;
@@ -104,11 +133,29 @@ function handleCatStyleStand(cat, type, direction) {
   cat.style.backgroundImage = `url('./imgs/cat-frames/${type}-cat-${direction}-2.png')`;
 }
 
-setTimeout(() => moveCat(whiteCat, whiteCatX, whiteCatY, "white"), Math.random() * 3000 + 1000);
-setTimeout(() => moveCat(blackCat, blackCatX, blackCatY, "black"), Math.random() * 3000 + 1000);
+function startCatAnimations() {
+  setTimeout(() => moveCat(whiteCat, whiteCatX, whiteCatY, "white"), Math.random() * 3000 + 1000);
+  setTimeout(() => moveCat(blackCat, blackCatX, blackCatY, "black"), Math.random() * 3000 + 1000);
+}
 
 btn.addEventListener("click", () => {
   flowers.classList.remove("hide");
   flowers.classList.add("show");
   btn.classList.add("hide-btn");
 });
+
+function preloadImages(images, cb) {
+  let loadedImages = 0;
+  const totalImages = images.length;
+
+  images.forEach((imgSrc) => {
+    const img = new Image();
+    img.src = imgSrc;
+    img.onload = () => {
+      loadedImages++;
+      if (loadedImages === totalImages) cb();
+    };
+  });
+}
+
+preloadImages(images, startCatAnimations);
