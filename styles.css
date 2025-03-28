@@ -136,6 +136,20 @@ img {
   transition: all 10s;
 }
 
+.animal::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  bottom: 0px;
+  left: 55%;
+  transform: translateX(-50%);
+  z-index: 99;
+  filter: blur(3px);
+}
+
 @keyframes walk-right-frames {
   0% {
     background-image: url("./imgs/cat-frames/cat-right-1.png");

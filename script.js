@@ -13,7 +13,7 @@ function moveCat() {
   let moveDist = Math.floor(Math.random() * 150) + 50;
   let moveDir = Math.random();
 
-  if (curX === leftEdge + 33) moveDir = 0.49;
+  if (curX === leftEdge) moveDir = 0.49;
   if (curX === rightEdge - 33) moveDir = 0.24;
   if (curY === topEdge + 33) moveDir = 0.98;
   if (curY === bottomEdge - 33) moveDir = 0.74;
