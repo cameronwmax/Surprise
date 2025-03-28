@@ -125,7 +125,7 @@ img {
   position: absolute;
   bottom: 100px;
   /* left: calc(768px - 33px); */
-  left: 0;
+  left: 0px;
   width: 33px;
   height: 33px;
 
@@ -172,7 +172,7 @@ img {
   }
 }
 
-@keyframes walk-up-frames {
+@keyframes walk-down-frames {
   0% {
     background-image: url("./imgs/cat-frames/cat-down-1.png");
   }
