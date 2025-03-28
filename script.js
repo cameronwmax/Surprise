@@ -1,3 +1,5 @@
+const cursor = document.getElementById("cursor");
+
 const whiteCat = document.querySelector(".white-cat");
 const blackCat = document.querySelector(".black-cat");
 const container = document.querySelector(".card");
@@ -14,6 +16,27 @@ let whiteCatY = whiteCat.style.bottom;
 
 let blackCatX = blackCat.style.left;
 let blackCatY = blackCat.style.bottom;
+
+let mouseX = 0,
+  mouseY = 0;
+let cursorX = 0,
+  cursorY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.pageX;
+  mouseY = e.pageY;
+});
+
+function animateMouse() {
+  cursorX += (mouseX - cursorX) * 0.05;
+  cursorY += (mouseY - cursorY) * 0.05;
+
+  cursor.style.left = cursorX + "px";
+  cursor.style.top = cursorY + "px";
+
+  requestAnimationFrame(animateMouse);
+}
+animateMouse();
 
 function moveCat(cat, curX, curY, type) {
   let moveDist = Math.floor(Math.random() * 150) + 50;
