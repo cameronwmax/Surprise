@@ -29,6 +29,10 @@ Red: #F1A7A7
 
 */
 
+body {
+  background-color: black;
+}
+
 *,
 *::after,
 *::before {
@@ -119,8 +123,9 @@ img {
 
 .animal {
   position: absolute;
-  bottom: 100px;
-  left: 0px;
+  bottom: 0;
+  /* left: calc(768px - 33px); */
+  left: 0;
   width: 33px;
   height: 33px;
 
@@ -131,7 +136,7 @@ img {
   transition: all 10s;
 }
 
-@keyframes walk-frames {
+@keyframes walk-right-frames {
   0% {
     background-image: url("./imgs/cat-frames/cat-right-1.png");
   }
@@ -143,11 +148,38 @@ img {
   }
 }
 
-@keyframes walk {
+@keyframes walk-left-frames {
   0% {
-    left: 0;
+    background-image: url("./imgs/cat-frames/cat-left-1.png");
+  }
+  50% {
+    background-image: url("./imgs/cat-frames/cat-left-2.png");
   }
   100% {
-    left: calc(100% - 33px);
+    background-image: url("./imgs/cat-frames/cat-left-3.png");
+  }
+}
+
+@keyframes walk-up-frames {
+  0% {
+    background-image: url("./imgs/cat-frames/cat-up-1.png");
+  }
+  50% {
+    background-image: url("./imgs/cat-frames/cat-up-2.png");
+  }
+  100% {
+    background-image: url("./imgs/cat-frames/cat-up-3.png");
+  }
+}
+
+@keyframes walk-up-frames {
+  0% {
+    background-image: url("./imgs/cat-frames/cat-down-1.png");
+  }
+  50% {
+    background-image: url("./imgs/cat-frames/cat-down-2.png");
+  }
+  100% {
+    background-image: url("./imgs/cat-frames/cat-down-3.png");
   }
 }
