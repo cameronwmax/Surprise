@@ -50,13 +50,13 @@ function moveCat(cat, curX, curY, type) {
     cat.style.animation = "none";
 
     if (moveDir < 0.25) {
-      cat.style.backgroundImage = `url('./imgs/cat-frames/${type}-cat-left-2.png')`;
+      handleCatStyleStand(cat, type, "left");
     } else if (moveDir < 0.5) {
-      cat.style.backgroundImage = `url('./imgs/cat-frames/${type}-cat-right-2.png')`;
+      handleCatStyleStand(cat, type, "right");
     } else if (moveDir < 0.75) {
-      cat.style.backgroundImage = `url('./imgs/cat-frames/${type}-cat-up-2.png')`;
+      handleCatStyleStand(cat, type, "up");
     } else if (moveDir < 0.99) {
-      cat.style.backgroundImage = `url('./imgs/cat-frames/${type}-cat-down-2.png')`;
+      handleCatStyleStand(cat, type, "down");
     }
 
     setTimeout(() => moveCat(cat, curX, curY, type), Math.random() * 3000 + 1000);
@@ -73,6 +73,10 @@ function handleCatStylesY(cat, type, direction) {
   cat.style.animation = `${type}-cat-${direction}-frames 0.5s steps(3) infinite`;
   cat.classList.add(`${type}-cat-shadow-vertical`);
   cat.classList.remove(`${type}-cat-shadow-horizontal`);
+}
+
+function handleCatStyleStand(cat, type, direction) {
+  cat.style.backgroundImage = `url('./imgs/cat-frames/${type}-cat-${direction}-2.png')`;
 }
 
 setTimeout(() => moveCat(whiteCat, whiteCatX, whiteCatY, "white"), Math.random() * 3000 + 1000);
