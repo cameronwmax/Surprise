@@ -1,27 +1,3 @@
-const cursor = document.getElementById("cursor");
-
-const whiteCat = document.querySelector(".white-cat");
-const blackCat = document.querySelector(".black-cat");
-const container = document.querySelector(".card");
-const flowers = document.querySelector(".flowers");
-const btn = document.querySelector(".btn");
-
-const leftEdge = 0;
-const rightEdge = container.offsetWidth - 33;
-const bottomEdge = 0;
-const topEdge = container.offsetHeight - 25;
-
-let whiteCatX = whiteCat.style.left;
-let whiteCatY = whiteCat.style.bottom;
-
-let blackCatX = blackCat.style.left;
-let blackCatY = blackCat.style.bottom;
-
-let mouseX = 0,
-  mouseY = 0;
-let cursorX = 0,
-  cursorY = 0;
-
 const images = [
   "./imgs/cat-frames/black-cat-up-1.png",
   "./imgs/cat-frames/black-cat-up-2.png",
@@ -50,6 +26,29 @@ const images = [
   "./imgs/flower-1.jpg",
   "./imgs/flower-pattern.png",
 ];
+
+const cursor = document.getElementById("cursor");
+const whiteCat = document.querySelector(".white-cat");
+const blackCat = document.querySelector(".black-cat");
+const container = document.querySelector(".card");
+const flowers = document.querySelector(".flowers");
+const btn = document.querySelector(".btn");
+
+const leftEdge = 0;
+const rightEdge = container.offsetWidth - 33;
+const bottomEdge = 0;
+const topEdge = container.offsetHeight - 25;
+
+let whiteCatX = whiteCat.style.left;
+let whiteCatY = whiteCat.style.bottom;
+
+let blackCatX = blackCat.style.left;
+let blackCatY = blackCat.style.bottom;
+
+let mouseX = 0,
+  mouseY = 0;
+let cursorX = 0,
+  cursorY = 0;
 
 document.addEventListener("mousemove", (e) => {
   mouseX = e.pageX;
